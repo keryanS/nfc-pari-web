@@ -12,7 +12,7 @@ jQuery(function($){
         $.ajax({
             url: apiUrl+"get/surveys/",
         }).done(function(results) {
-            return results.data;
+            return results.body.data;
         }).fail(function() {
             return "error getting surveys" ;
         });
@@ -22,7 +22,7 @@ jQuery(function($){
         $.ajax({
             url: apiUrl+"get/survey/current",
         }).done(function(results) {
-            return results.data;
+            return results.body.data;
         }).fail(function() {
             return "error getting surveys" ;
         });
@@ -32,7 +32,7 @@ jQuery(function($){
         $.ajax({
             url: apiUrl+"get/survey/"+id,
         }).done(function(results) {
-            return results.data;
+            return results.body.data;
         }).fail(function() {
             return "error getting surveys" ;
         });
@@ -42,7 +42,7 @@ jQuery(function($){
         $.ajax({
             url: apiUrl+"get/surveys/charts",
         }).done(function(results) {
-            return results.data;
+            return results.body.data;
         }).fail(function() {
             return "error getting surveys" ;
         });
@@ -52,7 +52,7 @@ jQuery(function($){
         $.ajax({
             url: apiUrl+"get/survey/"+id+"/charts",
         }).done(function(results) {
-            return results.data;
+            return results.body.data;
         }).fail(function() {
             return "error getting surveys" ;
         });
@@ -62,7 +62,7 @@ jQuery(function($){
         $.ajax({
             url: apiUrl+"get/users/top10",
         }).done(function(results) {
-            return results.data;
+            return results.body.data;
         }).fail(function() {
             return "error getting players" ;
         });
@@ -72,7 +72,7 @@ jQuery(function($){
         $.ajax({
             url: apiUrl+"get/users/flop10",
         }).done(function(results) {
-            return results.data;
+            return results.body.data;
         }).fail(function() {
             return "error getting players" ;
         });
