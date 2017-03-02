@@ -1,0 +1,33 @@
+html, body{
+	margin: 0;
+	padding: 0;
+	background-color: #111;
+}
+
+#main-versus{
+	height: 900px;
+	width: 1400px;
+	margin: 0 auto;
+	background: url(../images/bg_versus.png) no-repeat;
+	background-size: cover;
+}
+
+.zone1{
+    width: 491px;
+    height: 564px;
+    background-color: #000;
+    position: absolute;
+    z-index: 999;
+    top: 168px;
+    left: 268px;
+}
+
+.zone2{
+    width: 491px;
+    height: 564px;
+    background-color: #000;
+    position: absolute;
+    z-index: 999;
+    top: 168px;
+    right: 270px;
+}

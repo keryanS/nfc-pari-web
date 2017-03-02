@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Your Admin Panel</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <!-- Main stylesheed  (EDIT THIS ONE) -->
+        <link rel="stylesheet" href="css/style.css" />
+
+        <link rel="stylesheet" href="js/jwysiwyg/jquery.wysiwyg.old-school.css" />
+        
+        <!-- jQuery AND jQueryUI -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+        
+        <!-- jQuery Cookie - https://github.com/carhartl/jquery-cookie -->
+        <script type="text/javascript" src="js/cookie/jquery.cookie.js"></script>
+        
+        <!-- jWysiwyg - https://github.com/akzhan/jwysiwyg/ -->
+        <link rel="stylesheet" href="js/jwysiwyg/jquery.wysiwyg.old-school.css" />
+        <script type="text/javascript" src="js/jwysiwyg/jquery.wysiwyg.js"></script>
+        
+        
+        <!-- Tooltipsy - http://tooltipsy.com/ -->
+        <script type="text/javascript" src="js/tooltipsy.min.js"></script>
+        
+        <!-- iPhone checkboxes - http://awardwinningfjords.com/2009/06/16/iphone-style-checkboxes.html -->
+        <script type="text/javascript" src="js/iphone-style-checkboxes.js"></script>
+        <script type="text/javascript" src="js/excanvas.js"></script>
+        
+        <!-- Load zoombox (lightbox effect) - http://www.grafikart.fr/zoombox -->
+        <script type="text/javascript" src="js/zoombox/zoombox.js"></script>
+        
+        <!-- Charts - http://www.filamentgroup.com/lab/update_to_jquery_visualize_accessible_charts_with_html5_from_designing_with/ -->
+        <script type="text/javascript" src="js/visualize.jQuery.js"></script>
+        
+        <!-- Uniform - http://uniformjs.com/ -->
+        <script type="text/javascript" src="js/jquery.uniform.js"></script>
+        
+        
+        <!-- Main Javascript that do the magic part (EDIT THIS ONE) -->
+        <script type="text/javascript" src="js/main.js"></script>
+    </head>
+    <body class="white">
+        
+        <!--              
+                HEAD
+                        --> 
+        <div id="head">
+            <div class="left">
+                <a href="#" class="button profile"><img src="img/icons/top/huser.png" alt="" /></a>
+                Bonjour, 
+                <a href="#">John Doe</a>
+                |
+                <a href="#">Se déconnecter</a>
+            </div>
+            <div class="right">
+                <form action="#" id="search" class="search placeholder">
+                    <label>Vous recherchez un truc ?</label>
+                    <input type="text" value="" name="q" class="text"/>
+                    <input type="submit" value="rechercher" class="submit"/>
+                </form>
+            </div>
+        </div>
+                
+                
+  
+                
+                
+                
+                
+        <!--            
+              CONTENT 
+                        --> 
+        <div id="content" class="black">
+                      
+            <h1><img src="img/icons/document-2-add.png" alt="" /> Création d'un sondage </h1>
+                        
+            <div class="bloc">
+                <div class="title">Créez votre sondage<a href="#" class="toggle"></a></div>
+                <div class="content">
+
+                    <div class="input medium">
+                        <label for="title">Titre du sondage</label>
+                        <input type="text" id="title">
+                    </div>
+                    <div class="input long">
+                        <label for="subtitle">Sous titre</label>
+                        <input type="text" id="subtitle">
+                        Des informations complémentaires (facultatif)
+                    </div><br>
+                    <div class="input left">
+                        <label for="choiceA">Choix 1</label>
+                        <input type="text" id="choiceA"><br>
+                        <div class="checker" id="uniform-check1"><span class="checked"><input type="checkbox" id="choiceAIsAnswer" style="opacity: 0;"></span></div><label for="choiceAIsAnswer" class="inline">Est la bonne réponse</label>
+                    </div>
+                    <div class="input right">
+                        <label for="choiceA">Choix 2</label>
+                        <input type="text" id="choiceB"><br>
+                        <div class="checker" id="uniform-check2"><span class="checked"><input type="checkbox" id="choiceBIsAnswer" style="opacity: 0;"></span></div><label for="choiceBIsAnswer" class="inline">Est la bonne réponse</label>
+                    </div><br>
+                    <div class="input">
+                        <label for="category">Catégorie</label>
+                        <input type="text" id="category">
+                        Un tag pour régrouper plusieurs sondages (Facultatif)
+                    </div>
+                    <div class="input left">
+                        <label for="dateBegin">Date de début</label>
+                        <input type="date" id="dateBegin">
+                    </div>
+                    <div class="input right">
+                        <label for="duration">Durée du sondage</label>
+                        <input type="number" min="1" max="31" id="duration">
+                        (En jour, changement à minuit)
+                    </div>
+                    <div class="cb"></div>
+                    <div class="submit" style='margin-top:20px;'>
+                        <input type="submit" value="Enregistrer">
+                    </div>
+            </div>
+
+        </div>
+        
+    </body>
+</html>
