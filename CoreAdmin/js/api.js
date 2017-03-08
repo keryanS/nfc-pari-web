@@ -1,6 +1,6 @@
-jQuery(function($){
 
-    var apiUrl = "http://localhost/";
+
+    var apiUrl = "http://localhost:3000/";
 
     function getSurveys(category){
         if(category != null){
@@ -9,28 +9,20 @@ jQuery(function($){
         else {
             category = "";
         }
-        $.ajax({
-            url: apiUrl+"get/surveys/",
-        }).done(function(results) {
-            return results.body.data;
-        }).fail(function() {
-            return "error getting surveys" ;
+        return $.ajax({
+            url: apiUrl+"survey/",
         });
     }
 
     function getCurrentSurvey(){
-        $.ajax({
-            url: apiUrl+"get/survey/current",
-        }).done(function(results) {
-            return results.body.data;
-        }).fail(function() {
-            return "error getting surveys" ;
+        return $.ajax({
+            url: apiUrl+"survey/current",
         });
     }
 
     function getSurvey(id){
         $.ajax({
-            url: apiUrl+"get/survey/"+id,
+            url: apiUrl+"survey/"+id,
         }).done(function(results) {
             return results.body.data;
         }).fail(function() {
@@ -40,7 +32,7 @@ jQuery(function($){
 
     function getSurveysCharts(){
         $.ajax({
-            url: apiUrl+"get/surveys/charts",
+            url: apiUrl+"survey/charts",
         }).done(function(results) {
             return results.body.data;
         }).fail(function() {
@@ -50,7 +42,7 @@ jQuery(function($){
 
     function getSurveyChart(id){
         $.ajax({
-            url: apiUrl+"get/survey/"+id+"/charts",
+            url: apiUrl+"survey/"+id+"/charts",
         }).done(function(results) {
             return results.body.data;
         }).fail(function() {
@@ -78,4 +70,3 @@ jQuery(function($){
         });
     }
 
-});
