@@ -72,8 +72,21 @@ jQuery(function($){
     }
 
 
-    
      /**
+	disable 2nd choice
+     **/
+    $("#choiceBIsAnswer").click( function(){
+		if($(this).is(":checked")){
+		    $("#choiceAIsAnswer").prop( "checked", false).parent().removeClass('checked');
+		}
+    });
+
+     $("#choiceAIsAnswer").click(function(){
+	if($(this).is(":checked")){
+	    $("#choiceBIsAnswer").prop( "checked", false ).parent().removeClass('checked');
+	}
+     } );    
+	/**
      * Slide toggle for blocs
      * */
      $('.bloc .title').append('<a href="#" class="toggle"></a>');
