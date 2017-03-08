@@ -37,9 +37,15 @@
         <!-- Uniform - http://uniformjs.com/ -->
         <script type="text/javascript" src="js/jquery.uniform.js"></script>
         
+
+	
+        <!-- Main Javascript that do the magic part (EDIT THIS ONE) -->
+        <script type="text/javascript" src="js/api.js"></script>
         
         <!-- Main Javascript that do the magic part (EDIT THIS ONE) -->
         <script type="text/javascript" src="js/main.js"></script>
+
+
     </head>
     <body class="white">
         
@@ -115,7 +121,7 @@
                     </div>
                     <div class="cb"></div>
                     <div class="submit" style='margin-top:20px;'>
-                        <input type="submit" value="Enregistrer">
+                        <input type="submit" value="Enregistrer" onclick="surveyAlreadyExist()">
                     </div>
             </div>
 

@@ -1,6 +1,10 @@
-jQuery(function($){
+
 
     var apiUrl = "http://localhost/";
+
+    function surveyAlreadyExist(){
+	alert("Il existe déja un sondage pour aujourd'hui");
+    }
 
     function getSurveys(category){
         if(category != null){
@@ -78,4 +82,3 @@ jQuery(function($){
         });
     }
 
-});
