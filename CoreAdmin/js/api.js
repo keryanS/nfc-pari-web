@@ -7,6 +7,14 @@
 	alert("Il existe déja un sondage pour aujourd'hui");
     }
 
+    function addSurvey(newSurvey) {
+        return $.ajax({
+            type: "POST",
+            url: [apiUrl, "survey"].join(''),
+            body: newSurvey
+        });
+    }
+
     function getSurveys(category){
         if(category != null){
             category = "/" + category;
