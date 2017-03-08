@@ -2,17 +2,39 @@ jQuery(function($){
     
 
     if($('#currentSurvey').length > 0){
-        var json = getCurrentSurvey();
-        $('#currentSurveyLabel').html(json.label);
-        $('#currentSurveySubLabel').html(json.subLabel);
-        $('#currentSurveyFirstChoice').html(json.firstChoice);
-        $('#currentSurveySecondChoice').html(json.secondChoice);
-
-        var jsonSurveys = getSurveys();
-        jsonSurveys.forEach(function(survey,index){
-            $('#surveysHistory').append(newLigneSurvey(survey.date_end, survey.label, survey.category, survey.answer));
+        getCurrentSurvey()
+        .done(function(results) {
+            var json  = {
+                label: "Quelle équipe de france est forte ?",
+                sublabel: "C'est une question rétorique biensur",
+                date_start: Date.now(),
+                date_end: Date.now()+1,
+                firstChoice: "Marseille",
+                secondChoice: "PSG",
+                answer: undefined,
+                category: "foot"
+            }
+            console.log(json);
+            $('#currentSurveyLabel').html(json.label);
+            $('#currentSurveySubLabel').html(json.subLabel);
+            $('#currentSurveyFirstChoice').html(json.firstChoice);
+            $('#currentSurveySecondChoice').html(json.secondChoice);
+        })
+        .fail(function(error) {
+            console.log(error);
         });
 
+       getSurveys()
+        .done(function(results) {
+            console.log(results);
+             var jsonSurveys = results.data;
+             jsonSurveys.forEach(function(survey,index){
+                $('#surveysHistory').append(newLigneSurvey(survey.date_end, survey.label, survey.category, survey.answer));
+            });
+        })
+        .fail(function(error) {
+            console.log(error);
+        });
     }
 
     if($('#top10Loop').length > 0){
@@ -30,22 +52,22 @@ jQuery(function($){
     }
 
     function newLigneTop10(index, name, firstname, victoryCount){
-        var html = "<tr>
-                      <td style='width:140px;'>"+index+"</td>
-                      <td><a href='#'>"+name+"</a></td>
-                      <td><a href=''>"+firstname+"</a></td>
-                      <td>"+victoryCount+" victoires</td>
-                  </tr>";
+        var html = '<tr>'
+                      +'<td style="width:140px;">'+ index + "</td>"
+                      +'<td><a href="#">'+name+'</a></td>'
+                      +'<td><a href="">'+firstname+'</a></td>'
+                      +'<td>'+victoryCount+" victoires</td>"
+                  +"</tr>";
         return html;
     }
 
     function newLigneSurvey(date, label, category, answer){
-        var html = "<tr>
-                      <td style='width:140px;'>"+date+"</td>
-                      <td>"+label+"</td>
-                      <td><a href='?category="+category+"'>"+category+"</a></td>
-                      <td>"+answer+"</td>
-                  </tr>";
+        var html = '<tr>'
+                      +'<td style="width:140px;">'+date+'</td>'
+                      +'<td>"+label+"</td>'
+                      +'<td><a href="?category='+category+'>'+category+'</a></td>'
+                      +'<td>'+answer+'</td>'
+                  +'</tr>';
         return html;
     }
 
