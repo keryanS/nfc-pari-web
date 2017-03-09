@@ -69,7 +69,7 @@ function postSurvey () {
     }
 jQuery(function($){
     
-	if($('#sureveyResult').length > 0){
+	if($('#surveyResult').length > 0){
 		var id = getUrlParameter('id');
 		getSurvey(id).done(function(results){
 			$('#currentSurveyLabel').html(results.survey.label);
@@ -84,6 +84,7 @@ jQuery(function($){
 			$('#nbContributors').html(nbContributors);
 
 
+		});
 	}
 
     if($('#currentSurvey').length > 0){
