@@ -1,3 +1,72 @@
+function postSurvey () {
+        console.log('begin postSurvey');
+        var newSurvey = {
+            label: $('#title').val(),
+            sublabel: $('#subtitle').val(),
+            firstChoice: $('#choiceA').val(),
+            secondChoice: $('#choiceB').val(),
+            category: $('#category').val(),
+            answer: undefined,
+            date_start: $('#dateBegin').val(),
+            date_end: $('#duration').val()+this.date_start
+        };
+        var choiceAiSAnswer = $('#choiceAIsAnswer').val();
+        var choiceBIsAnswer = $('#choiceBIsAnswer').val();
+        if (choiceAiSAnswer) {
+            newSurvey.answer =choiceAiSAnswer;
+        } else {
+            if (choiceBiSAnswer) {
+                newSurvey.answer = $('#');
+            }
+        }
+        console.log(newSurvey);
+        addSurvey(newSurvey)
+        .done(function (results) {
+            //console.log(results);
+            checkValide();
+        })
+        .fail(function (error) {
+            //console.log(error);
+            checkValide($('#dateBegin').val(), $('#duration').val());
+        });
+    }
+
+    function checkValide(date, duration){
+        //date = date.split('-');
+        date = new Date(date);
+        now = new Date(Date.now());
+        var endDate = moment(date).add(duration, 'days');
+        var dumpDate = moment("03.10.2017");
+        if (moment(date).isSame(now) || moment(date).isBefore(now)) {
+            alert('Veuillez sélectionner une date plus tard que aujourdhui');
+        } else {
+            console.log(endDate, dumpDate);
+            if (moment(endDate).isBefore(dumpDate) || moment(endDate).isSame(dumpDate)) {
+                alert('Les dates chevauchent le sondage courant');
+            } else {
+                window.location('index.html');
+            }
+        }
+    }
+ function newLigneTop10(index, name, firstname, victoryCount){
+        var html = '<tr>'
+                      +'<td style="width:140px;">'+ index + "</td>"
+                      +'<td><a href="#">'+name+'</a></td>'
+                      +'<td><a href="">'+firstname+'</a></td>'
+                      +'<td>'+victoryCount+" victoires</td>"
+                  +"</tr>";
+        return html;
+    }
+
+    function newLigneSurvey(date, label, category, answer){
+        var html = '<tr>'
+                      +'<td style="width:140px;">'+date+'</td>'
+                      +'<td>"+label+"</td>'
+                      +'<td><a href="?category='+category+'>'+category+'</a></td>'
+                      +'<td>'+answer+'</td>'
+                  +'</tr>';
+        return html;
+    }
 jQuery(function($){
     
 	if($('#sureveyResult').length > 0){
@@ -52,7 +121,7 @@ jQuery(function($){
             console.log(error);
         });
     }
-
+    
     if($('#top10Loop').length > 0){
         var json = getTop10Players();
         json.forEach(function(player,index){
@@ -67,25 +136,7 @@ jQuery(function($){
         });
     }
 
-    function newLigneTop10(index, name, firstname, victoryCount){
-        var html = '<tr>'
-                      +'<td style="width:140px;">'+ index + "</td>"
-                      +'<td><a href="#">'+name+'</a></td>'
-                      +'<td><a href="">'+firstname+'</a></td>'
-                      +'<td>'+victoryCount+" victoires</td>"
-                  +"</tr>";
-        return html;
-    }
-
-    function newLigneSurvey(date, label, category, answer){
-        var html = '<tr>'
-                      +'<td style="width:140px;">'+date+'</td>'
-                      +'<td>"+label+"</td>'
-                      +'<td><a href="?category='+category+'>'+category+'</a></td>'
-                      +'<td>'+answer+'</td>'
-                  +'</tr>';
-        return html;
-    }
+   
 
 
      /**
