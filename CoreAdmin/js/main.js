@@ -69,34 +69,35 @@ function postSurvey () {
     }
 jQuery(function($){
     
-	if($('#surveyResult').length > 0){
+	/*if($('#surveyResult').length > 0){
 		var id = getUrlParameter('id');
 		getSurvey(id).done(function(results){
-			$('#currentSurveyLabel').html(results.survey.label);
-            $('#currentSurveySubLabel').html(results.survey.subLabel);
-            $('#currentSurveyFirstChoice').html(results.survey.firstChoice);
-            $('#currentSurveySecondChoice').html(results.survey.secondChoice);
-			$('.choice1').html(results.survey.firstChoice);
-			$('.choice2').html(results.survey.secondChoice);
-			$('.nbChoice1').html(results.countFirstChoice);
-			$('.nbChoice2').html(results.countSecondChoice);
-			var nbContributors = results.contributors.length;
+			$('#currentSurveyLabel').html(results.data.survey.label);
+            $('#currentSurveySubLabel').val(results.data.survey.subLabel);
+            $('#currentSurveyFirstChoice').html(results.data.survey.firstChoice);
+            $('#currentSurveySecondChoice').html(results.data.survey.secondChoice);
+			$('.choice1').html(results.data.survey.firstChoice);
+			$('.choice2').html(results.data.survey.secondChoice);
+			$('.nbChoice1').html(results.data.countFirstChoice);
+            console.log($('.choice1'));
+			$('.nbChoice2').html(results.data.countSecondChoice);
+			var nbContributors = results.data.contributers.length;
 			$('#nbContributors').html(nbContributors);
 
-
+            $('.visualize').trigger('visualizeRefresh');
 		});
-	}
+	}*/
 
     if($('#currentSurvey').length > 0){
         getCurrentSurvey()
         .done(function(results) {
             var json  = {
-                label: "Quelle équipe de france est forte ?",
-                sublabel: "C'est une question rétorique biensur",
+                label: "Quel est le meilleur projet embarqué ?",
+                sublabel: "C'est une question rhétorique bien sur",
                 date_start: Date.now(),
                 date_end: Date.now()+1,
-                firstChoice: "Marseille",
-                secondChoice: "PSG",
+                firstChoice: "ADPEC",
+                secondChoice: "Un autre projet",
                 answer: undefined,
                 category: "foot"
             }

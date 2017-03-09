@@ -51,7 +51,7 @@
 
     function getSurvey(id){
         return $.ajax({
-            url: apiUrl+"survey/"+id,
+            url: apiUrl+"survey/contributers/"+id,
         });
     }
 
