@@ -70,7 +70,7 @@ function postSurvey () {
 jQuery(function($){
     
 	if($('#sureveyResult').length > 0){
-	var id = getUrlParameter('id');
+		var id = getUrlParameter('id');
 		getSurvey(id).done(function(results){
 			$('#currentSurveyLabel').html(results.survey.label);
             $('#currentSurveySubLabel').html(results.survey.subLabel);
