@@ -1,5 +1,21 @@
 jQuery(function($){
     
+	if($('#sureveyResult').length > 0){
+	var id = getUrlParameter('id');
+		getSurvey(id).done(function(results){
+			$('#currentSurveyLabel').html(results.survey.label);
+            $('#currentSurveySubLabel').html(results.survey.subLabel);
+            $('#currentSurveyFirstChoice').html(results.survey.firstChoice);
+            $('#currentSurveySecondChoice').html(results.survey.secondChoice);
+			$('.choice1').html(results.survey.firstChoice);
+			$('.choice2').html(results.survey.secondChoice);
+			$('.nbChoice1').html(results.countFirstChoice);
+			$('.nbChoice2').html(results.countSecondChoice);
+			var nbContributors = results.contributors.length;
+			$('#nbContributors').html(nbContributors);
+
+
+	}
 
     if($('#currentSurvey').length > 0){
         getCurrentSurvey()
